@@ -9,7 +9,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 #
-from userbot import HEROKU_APP, UPSTREAM_REPO_URL, propack
+from userbot import HEROKU_APP, UPSTREAM_REPO_URL, moussabot
 
 from ..Config import Config
 from ..core.logger import logging
@@ -181,7 +181,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         pass
 
 
-@propack.on(admin_cmd(pattern="تحديث(| الان)?$"))
+@moussabot.on(admin_cmd(pattern="تحديث(| الان)?$"))
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
