@@ -60,9 +60,7 @@ async def catgban(event):  # sourcery no-metrics
     if user.id == catub.uid:
         return await edit_delete(cate, "`لماذا احظر نفسي!`")
     if gban_sql.is_gbanned(user.id):
-        await cate.edit(
-            f"`العضو `[user](tg://user?id={user.id})` محظور بالفعل`"
-        )
+        await cate.edit(f"`العضو `[user](tg://user?id={user.id})` محظور بالفعل`")
     else:
         gban_sql.catgban(user.id, reason)
     san = await admin_groups(event.client)

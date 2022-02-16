@@ -303,9 +303,7 @@ async def yt_search(event):
     else:
         query = str(event.pattern_match.group(2))
     if not query:
-        return await edit_delete(
-            event, "`يرجى الرد على رسالة أو تمرير استعلام للبحث!`"
-        )
+        return await edit_delete(event, "`يرجى الرد على رسالة أو تمرير استعلام للبحث!`")
     video_q = await edit_or_reply(event, "`جاري البحث...`")
     if event.pattern_match.group(1) != "":
         lim = int(event.pattern_match.group(1))
@@ -352,7 +350,9 @@ async def kakashi(event):
             details = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await catevent.edit("**خطأ:** `يجب رفع الحظر عن` @instasavegrambot `واعادة المحاولة`")
+            await catevent.edit(
+                "**خطأ:** `يجب رفع الحظر عن` @instasavegrambot `واعادة المحاولة`"
+            )
             return
         await catevent.delete()
         cat = await event.client.send_file(

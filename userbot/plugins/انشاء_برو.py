@@ -48,7 +48,8 @@ async def _(event):
                 )
             )
             await edit_or_reply(
-                event, f"المجموعة `{group_name}` أنشئت بنجاح. دخول المجموعة {result.link}"
+                event,
+                f"المجموعة `{group_name}` أنشئت بنجاح. دخول المجموعة {result.link}",
             )
         except Exception as e:
             await edit_delete(event, f"**خطأ:**\n{str(e)}")

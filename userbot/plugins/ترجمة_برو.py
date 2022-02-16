@@ -47,7 +47,9 @@ async def _(event):
         lan, text = input_str.split(";")
     else:
         return await edit_delete(
-            event, "`قم بالرد على الرسالة المراد ترجمتها باستخدام الرمز .ترجمة مع رمز اللغة", time=5
+            event,
+            "`قم بالرد على الرسالة المراد ترجمتها باستخدام الرمز .ترجمة مع رمز اللغة",
+            time=5,
         )
     text = deEmojify(text.strip())
     lan = lan.strip()

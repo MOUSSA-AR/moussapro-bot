@@ -118,14 +118,14 @@ async def on_afk(event):  # sourcery no-metrics
                     f"`انا متصل .\n\nمتصل حيث {endtime}\nالسبب : {AFK_.reason}`"
                 )
             else:
-                message_to_reply = f"`انا متصل .\n\nمتصل حيث {endtime}\nالسبب : لم يذكر ( ಠ ʖ̯ ಠ)`"
+                message_to_reply = (
+                    f"`انا متصل .\n\nمتصل حيث {endtime}\nالسبب : لم يذكر ( ಠ ʖ̯ ಠ)`"
+                )
             if event.chat_id:
                 msg = await event.reply(message_to_reply, file=AFK_.media_afk.media)
         elif AFK_.afk_type == "text":
             if AFK_.msg_link and AFK_.reason:
-                message_to_reply = (
-                    f"**انا غير متصل .\n\nآخر ظهور منذ {endtime}\nالسبب : **{AFK_.reason}"
-                )
+                message_to_reply = f"**انا غير متصل .\n\nآخر ظهور منذ {endtime}\nالسبب : **{AFK_.reason}"
             elif AFK_.reason:
                 message_to_reply = (
                     f"`انا غير متصل .\n\nآخر ظهور منذ {endtime}\nالسبب : {AFK_.reason}`"
@@ -150,7 +150,9 @@ async def on_afk(event):  # sourcery no-metrics
         messaget = media_type(event)
         resalt = f"#وضع_النوم \n<b>المجموعة : </b><code>{hmm.title}</code>"
         if full is not None:
-            resalt += f"\n<b>من : </b> 👤{_format.htmlmentionuser(full.first_name , full.id)}"
+            resalt += (
+                f"\n<b>من : </b> 👤{_format.htmlmentionuser(full.first_name , full.id)}"
+            )
         if messaget is not None:
             resalt += f"\n<b>نوع الرسالة : </b><code>{messaget}</code>"
         else:
@@ -207,9 +209,7 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await edit_delete(
-                event, f"`انا ذاهب قليلا. بسبب ~` {AFK_.reason}", 5
-            )
+            await edit_delete(event, f"`انا ذاهب قليلا. بسبب ~` {AFK_.reason}", 5)
         else:
             await edit_delete(event, f"`انا ذاهب قليلا! `", 5)
         if BOTLOG:
@@ -245,9 +245,7 @@ async def _(event):
     reply = await event.get_reply_message()
     media_t = media_type(reply)
     if media_t == "Sticker" or not media_t:
-        return await edit_or_reply(
-            event, "`عليك الرد على الوسائط للتفعيل`"
-        )
+        return await edit_or_reply(event, "`عليك الرد على الوسائط للتفعيل`")
     if not BOTLOG:
         return await edit_or_reply(
             event, "`لاستخدام وضع النوم2 عليك ضبط القيمة PRIVATE_GROUP_BOT_API_ID`"
@@ -271,9 +269,7 @@ async def _(event):
             AFK_.afk_time = datetime.now()
         AFK_.USERAFK_ON = f"on: {AFK_.reason}"
         if AFK_.reason:
-            await edit_delete(
-                event, f"`انا ذاهب بسبب ~` {AFK_.reason}", 5
-            )
+            await edit_delete(event, f"`انا ذاهب بسبب ~` {AFK_.reason}", 5)
         else:
             await edit_delete(event, f"`انا ذاهب! `", 5)
         AFK_.media_afk = await reply.forward_to(BOTLOG_CHATID)

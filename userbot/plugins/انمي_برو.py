@@ -72,9 +72,7 @@ async def anilist(event):
     "Get info on any anime."
     input_str = event.pattern_match.group(1)
     if not input_str:
-        return await edit_delete(
-            event, "__ما الذي يجب أن أبحث عنه؟ اعطني شيء للبحث__"
-        )
+        return await edit_delete(event, "__ما الذي يجب أن أبحث عنه؟ اعطني شيء للبحث__")
     event = await edit_or_reply(event, "`جاري البحث...`")
     result = await callAPI(input_str)
     msg = await formatJSON(result)
@@ -368,12 +366,8 @@ async def whatanime(event):
         if not js0:
             return await output[0].edit("`لم يتم العثور على شيء.`")
         js0 = js0[0]
-        text = (
-            f'**لقب روماجي : **`{html.escape(js0["anilist"]["title"]["romaji"])}`\n'
-        )
-        text += (
-            f'**لقب محلي :** `{html.escape(js0["anilist"]["title"]["native"])}`\n'
-        )
+        text = f'**لقب روماجي : **`{html.escape(js0["anilist"]["title"]["romaji"])}`\n'
+        text += f'**لقب محلي :** `{html.escape(js0["anilist"]["title"]["native"])}`\n'
         text += (
             f'**لقب اجنبي :** `{html.escape(js0["anilist"]["title"]["english"])}`\n'
             if js0["anilist"]["title"]["english"] is not None

@@ -7,41 +7,27 @@ from telethon.errors import rpcbaseerrors
 from userbot import catub
 
 from ..core.managers import edit_delete, edit_or_reply
-
 from ..helpers.utils import reply_id
-
 from . import BOTLOG, BOTLOG_CHATID
 
 plugin_category = "utils"
 
 purgelist = {}
 
+
 @catub.cat_cmd(
-
     pattern="حذف(?: |$)(.*)",
-
     command=("حذف", plugin_category),
-
     info={
-
         "header": "To purge messages from the replied message.",
-
         "description": "Deletes the x(count) amount of messages from the replied message if you don t use count then deletes all messages from there",
-
         "usage": [
-
             "{tr}purge <count> <reply>",
-
             "{tr}purge <reply>",
-
         ],
-
         "examples": "{tr}purge 10",
-
     },
-
 )
-
 async def fastpurger(event):
 
     "To purge messages from the replied message"
@@ -63,15 +49,10 @@ async def fastpurger(event):
             count += 1
 
             async for msg in event.client.iter_messages(
-
                 event.chat_id,
-
                 limit=(int(input_str) - 1),
-
                 offset_id=reply.id,
-
                 reverse=True,
-
             ):
 
                 msgs.append(msg)
@@ -89,17 +70,14 @@ async def fastpurger(event):
         elif input_str:
 
             return await edit_or_reply(
-
-                event, f"**خطأ**\n`{input_str} ليس عدداً صحيحاً. اعد بناء الجملة بشكل صحيح!`"
-
+                event,
+                f"**خطأ**\n`{input_str} ليس عدداً صحيحاً. اعد بناء الجملة بشكل صحيح!`",
             )
 
         else:
 
             async for msg in event.client.iter_messages(
-
                 chat, min_id=event.reply_to_msg_id
-
             ):
 
                 msgs.append(msg)
@@ -117,11 +95,8 @@ async def fastpurger(event):
     else:
 
         await edit_or_reply(
-
             event,
-
             "`لم تقم بتحديد رسالة!`",
-
         )
 
         return
@@ -133,45 +108,31 @@ async def fastpurger(event):
     await event.delete()
 
     hi = await event.client.send_message(
-
         event.chat_id,
-
         "`تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁`",
-
     )
 
     if BOTLOG:
 
         await event.client.send_message(
-
             BOTLOG_CHATID,
-
             "`تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁`",
-
         )
 
     await sleep(5)
 
     await hi.delete()
 
+
 @catub.cat_cmd(
-
     pattern="حذف من$",
-
     command=("حذف من", plugin_category),
-
     info={
-
         "header": "To mark the replied message as starting message of purge list.",
-
         "description": "After using this u must use purgeto command also so that the messages in between this will delete.",
-
         "usage": "{tr}purgefrom",
-
     },
-
 )
-
 async def purge_from(event):
 
     "To mark the message for purging"
@@ -185,35 +146,24 @@ async def purge_from(event):
         purgelist[event.chat_id] = reply_message
 
         await edit_delete(
-
             event,
-
             "`تم تحديد الرسالة الأولى، حدد الرسالة الثانية الآن.`",
-
         )
 
     else:
 
         await edit_delete(event, "` قم بالرد على الرسالة لحذفها.`")
 
+
 @catub.cat_cmd(
-
     pattern="حذف الى$",
-
     command=("حذف الى", plugin_category),
-
     info={
-
         "header": "To mark the replied message as end message of purge list.",
-
         "description": "U need to use purgefrom command before using this command to function this.",
-
         "usage": "{tr}purgeto",
-
     },
-
 )
-
 async def purge_to(event):
 
     "To mark the message for purging"
@@ -229,21 +179,15 @@ async def purge_to(event):
     except KeyError:
 
         return await edit_delete(
-
             event,
-
             "`عليك تحديد الرسالة الأولى قبل استخدام هذا الأمر.`",
-
         )
 
     if not reply or not from_message:
 
         return await edit_delete(
-
             event,
-
             "`عليك تحديد الرسالة الأولى قبل استخدام هذا الأمر`",
-
         )
 
     try:
@@ -255,9 +199,7 @@ async def purge_to(event):
         count = 0
 
         async for msg in event.client.iter_messages(
-
             event.chat_id, min_id=(from_message - 1), max_id=(to_message + 1)
-
         ):
 
             msgs.append(msg)
@@ -277,47 +219,32 @@ async def purge_to(event):
             await event.client.delete_messages(chat, msgs)
 
         await edit_delete(
-
             event,
-
             "`تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁.`",
-
         )
 
         if BOTLOG:
 
             await event.client.send_message(
-
                 BOTLOG_CHATID,
-
                 "`تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁`",
-
             )
 
     except Exception as e:
 
         await edit_delete(event, f"**Error**\n`{str(e)}`")
 
+
 @catub.cat_cmd(
-
     pattern="احذفلي",
-
     command=("احذفلي", plugin_category),
-
     info={
-
         "header": "To purge your latest messages.",
-
         "description": "Deletes x(count) amount of your latest messages.",
-
         "usage": "{tr}purgeme <count>",
-
         "examples": "{tr}purgeme 2",
-
     },
-
 )
-
 async def purgeme(event):
 
     "To purge your latest messages."
@@ -339,47 +266,32 @@ async def purgeme(event):
         await message.delete()
 
     smsg = await event.client.send_message(
-
         event.chat_id,
-
         "` تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁`",
-
     )
 
     if BOTLOG:
 
         await event.client.send_message(
-
             BOTLOG_CHATID,
-
             "`تم حذف " + str(count) + " من الرسائل بنجاح🧸🍁`",
-
         )
 
     await sleep(5)
 
     await smsg.delete()
 
+
 @catub.cat_cmd(
-
     pattern="مسح(\s*| \d+)$",
-
     command=("مسح", plugin_category),
-
     info={
-
         "header": "To delete replied message.",
-
         "description": "Deletes the message you replied to in x(count) seconds if count is not used then deletes immediately",
-
         "usage": ["{tr}del <time in seconds>", "{tr}del"],
-
         "examples": "{tr}del 2",
-
     },
-
 )
-
 async def delete_it(event):
 
     "To delete replied message."
@@ -403,9 +315,7 @@ async def delete_it(event):
                 if BOTLOG:
 
                     await event.client.send_message(
-
                         BOTLOG_CHATID, "`تم مسح الرسائل بنجاح.`"
-
                     )
 
             except rpcbaseerrors.BadRequestError:
@@ -413,11 +323,8 @@ async def delete_it(event):
                 if BOTLOG:
 
                     await event.client.send_message(
-
                         BOTLOG_CHATID,
-
                         "`لا يمكنني مسح هذه الرسالة لأنني لست أدمن!`",
-
                     )
 
         elif input_str:
@@ -437,9 +344,7 @@ async def delete_it(event):
                 if BOTLOG:
 
                     await event.client.send_message(
-
                         BOTLOG_CHATID, "`تم مسح الرسائل بنجاح!`"
-
                     )
 
             except rpcbaseerrors.BadRequestError:
@@ -449,4 +354,3 @@ async def delete_it(event):
     elif not input_str:
 
         await event.delete()
-

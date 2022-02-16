@@ -7,6 +7,7 @@ import heroku3
 import urllib3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
+
 #
 from userbot import HEROKU_APP, UPSTREAM_REPO_URL, propack
 
@@ -63,9 +64,7 @@ async def gen_chlog(repo, diff):
 
 
 async def print_changelogs(event, ac_br, changelog):
-    changelog_str = (
-        f"**قام مطورين السورس بتحديث جمثون**\n**التـغييرات\n** {changelog}"
-    )
+    changelog_str = f"**قام مطورين السورس بتحديث جمثون**\n**التـغييرات\n** {changelog}"
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
         with open("output.txt", "w+") as file:
@@ -257,6 +256,7 @@ async def upstream(event):
         await event.edit("**• جار تحـديـث سـورس جـمثـون انـتـظـر قـليـلا 🔨**")
         await update(event, repo, ups_rem, ac_br)
     return
+
 
 CMD_HELP.update(
     {

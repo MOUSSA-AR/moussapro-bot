@@ -43,9 +43,7 @@ async def get_media(event):
         if mediatype is not None:
             await event.client.download_media(msg, tempdir)
             i += 1
-            await event.edit(
-                f"تحميل الوسائط من هذه القناة.\n **تم التحميل : **`{i}`"
-            )
+            await event.edit(f"تحميل الوسائط من هذه القناة.\n **تم التحميل : **`{i}`")
     ps = subprocess.Popen(("ls", tempdir), stdout=subprocess.PIPE)
     output = subprocess.check_output(("wc", "-l"), stdin=ps.stdout)
     ps.wait()
@@ -83,9 +81,7 @@ async def get_media(event):
         if mediatype is not None:
             await event.client.download_media(msg, tempdir)
             i += 1
-            await event.edit(
-                f"تحميل الوسائط من هذه القناة.\n **تم التحميل : **`{i}`"
-            )
+            await event.edit(f"تحميل الوسائط من هذه القناة.\n **تم التحميل : **`{i}`")
     ps = subprocess.Popen(("ls", tempdir), stdout=subprocess.PIPE)
     output = subprocess.check_output(("wc", "-l"), stdin=ps.stdout)
     ps.wait()

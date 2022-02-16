@@ -32,9 +32,7 @@ plugin_category = "fun"
 async def echo(event):
     "To echo the user messages"
     if event.reply_to_msg_id is None:
-        return await edit_or_reply(
-            event, "`قم بالرد على على رسالة المستخدم لتقليده`"
-        )
+        return await edit_or_reply(event, "`قم بالرد على على رسالة المستخدم لتقليده`")
     catevent = await edit_or_reply(event, "`تم اضافة العضو للائحة المقلدين...`")
     user, rank = await get_user_from_event(event, catevent, nogroup=True)
     if not user:
@@ -72,9 +70,7 @@ async def echo(event):
 async def echo(event):
     "To stop echoing the user messages"
     if event.reply_to_msg_id is None:
-        return await edit_or_reply(
-            event, "يجب الرد على رسالة المستخدم لتقليده"
-        )
+        return await edit_or_reply(event, "يجب الرد على رسالة المستخدم لتقليده")
     reply_msg = await event.get_reply_message()
     user_id = reply_msg.sender_id
     chat_id = event.chat_id
@@ -108,31 +104,23 @@ async def echo(event):
     if input_str:
         lecho = get_all_echos()
         if len(lecho) == 0:
-            return await edit_delete(
-                event, "لم تقم بتقليد اي مستخدم في هذه الدردشة."
-            )
+            return await edit_delete(event, "لم تقم بتقليد اي مستخدم في هذه الدردشة.")
         try:
             remove_all_echos()
         except Exception as e:
             await edit_delete(event, f"**خطأ:**\n`{str(e)}`", 10)
         else:
-            await edit_or_reply(
-                event, "تم ايقاف تقليد جميع المستخدمين."
-            )
+            await edit_or_reply(event, "تم ايقاف تقليد جميع المستخدمين.")
     else:
         lecho = get_echos(event.chat_id)
         if len(lecho) == 0:
-            return await edit_delete(
-                event, "لم تقم بتقليد اي مستخدم في هذه الدردشة."
-            )
+            return await edit_delete(event, "لم تقم بتقليد اي مستخدم في هذه الدردشة.")
         try:
             remove_echos(event.chat_id)
         except Exception as e:
             await edit_delete(event, f"**خطأ:**\n`{str(e)}`", 10)
         else:
-            await edit_or_reply(
-                event, "تم ايقاف تقليد جميع المستخدمين في هذه الدردشة"
-            )
+            await edit_or_reply(event, "تم ايقاف تقليد جميع المستخدمين في هذه الدردشة")
 
 
 @catub.cat_cmd(
@@ -181,9 +169,7 @@ async def echo(event):  # sourcery no-metrics
     else:
         lsts = get_echos(event.chat_id)
         if len(lsts) <= 0:
-            return await edit_or_reply(
-                event, "لا يوجد مستخدمين مقلدين في هذه الدردشة"
-            )
+            return await edit_or_reply(event, "لا يوجد مستخدمين مقلدين في هذه الدردشة")
 
         for echos in lsts:
             if echos.user_username:

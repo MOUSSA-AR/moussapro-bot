@@ -30,7 +30,9 @@ LOGS = logging.getLogger(__name__)
 SONG_SEARCH_STRING = "<code>جاري البحث عن الأغنية، الرجاء الإنتظار...</code>"
 SONG_NOT_FOUND = "<code>لم اعثر على الأغنية المطلوبة</code>"
 SONG_SENDING_STRING = "<code>نعم، لقد وجدت الأغنية، جاري الإرسال...</code>"
-SONGBOT_BLOCKED_STRING = "<code>قم بفك الحظر عن البوت @songdl_bot وحاول مرة ثانية</code>"
+SONGBOT_BLOCKED_STRING = (
+    "<code>قم بفك الحظر عن البوت @songdl_bot وحاول مرة ثانية</code>"
+)
 # =========================================================== #
 #                                                             #
 # =========================================================== #
@@ -61,7 +63,9 @@ async def _(event):
     else:
         return await edit_or_reply(event, "`لا يمكنني ايجاد هذه الأغنية!`")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "`جاري البحث عن الأغنية المطلوبة، انتظر قليلا...`")
+    catevent = await edit_or_reply(
+        event, "`جاري البحث عن الأغنية المطلوبة، انتظر قليلا...`"
+    )
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
@@ -146,12 +150,12 @@ async def _(event):
     else:
         return await edit_or_reply(event, "`لا يمكنني ايجاد هذا الفيديو!`")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "`جاري البحث عن الفيديو المطلوب، انتظر قليلا...`")
+    catevent = await edit_or_reply(
+        event, "`جاري البحث عن الفيديو المطلوب، انتظر قليلا...`"
+    )
     video_link = await yt_search(str(query))
     if not url(video_link):
-        return await catevent.edit(
-            f"لا يمكنني العثور على الفيديو المطلوب `{query}`"
-        )
+        return await catevent.edit(f"لا يمكنني العثور على الفيديو المطلوب `{query}`")
     # thumb_cmd = thumb_dl.format(video_link=video_link)
     name_cmd = name_dl.format(video_link=video_link)
     video_cmd = video_dl.format(video_link=video_link)
@@ -174,9 +178,7 @@ async def _(event):
     if not os.path.exists(vsong_file):
         vsong_file = Path(f"{catname}.mkv")
     elif not os.path.exists(vsong_file):
-        return await catevent.edit(
-            f"لا يمكنني العثور على الفيديو المطلوب `{query}`"
-        )
+        return await catevent.edit(f"لا يمكنني العثور على الفيديو المطلوب `{query}`")
     await catevent.edit("`لقد وجدت شيئاً🧸🖤!`")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):

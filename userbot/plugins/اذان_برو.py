@@ -27,9 +27,7 @@ async def get_adzan(adzan):
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
     if request.status_code != 200:
-        return await edit_delete(
-            adzan, f"`تعذر جلب أي بيانات عن المدينة {LOKASI}`", 5
-        )
+        return await edit_delete(adzan, f"`تعذر جلب أي بيانات عن المدينة {LOKASI}`", 5)
     result = json.loads(request.text)
     catresult = f"<b>أوقات الصلاة الإسلامية </b>\
             \n\n<b>المدينة     : </b><i>{result['query']}</i>\

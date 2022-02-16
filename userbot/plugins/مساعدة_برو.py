@@ -189,7 +189,9 @@ async def _(event):
         try:
             cmds = PLG_INFO[input_str]
         except KeyError:
-            return await edit_delete(event, "__اسم البرنامج المساعد غير صالح أعد التحقق منه.__")
+            return await edit_delete(
+                event, "__اسم البرنامج المساعد غير صالح أعد التحقق منه.__"
+            )
         except Exception as e:
             return await edit_delete(event, f"**خطأ**\n`{str(e)}`")
         outstr = f"• **{input_str.title()} يحتوي على {len(cmds)} من الأوامر**\n"

@@ -486,7 +486,9 @@ async def you_dm_other(event):
 @catub.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "احرص على أن تكون هذه الخيارات للمستخدمين الذين يرسلون إليك رسائل ، وليس لك"
+        text = (
+            "احرص على أن تكون هذه الخيارات للمستخدمين الذين يرسلون إليك رسائل ، وليس لك"
+        )
         return await event.answer(text, cache_time=0, alert=True)
     text = f"""حسنًا ، أنت الآن تصل إلى القائمة المتاحة لسيدي, {mention}.
 __دعنا نجعل هذا سلسًا ودعني أعرف لماذا أنت هنا.__
@@ -625,16 +627,12 @@ async def pmpermit_on(event):
     if input_str == "on":
         if gvarstatus("pmpermit") is None:
             addgvar("pmpermit", "true")
-            await edit_delete(
-                event, "__تم تفعيل العميل لحسابك بنجاح.__"
-            )
+            await edit_delete(event, "__تم تفعيل العميل لحسابك بنجاح.__")
         else:
             await edit_delete(event, "__تم تفعيل العميل بالفعل لحسابك__")
     elif gvarstatus("pmpermit") is not None:
         delgvar("pmpermit")
-        await edit_delete(
-            event, "__تم تعطيل العميل لحسابك بنجاح__"
-        )
+        await edit_delete(event, "__تم تعطيل العميل لحسابك بنجاح__")
     else:
         await edit_delete(event, "__تم تعطيل العميل بالفعل لحسابك__")
 
@@ -658,18 +656,12 @@ async def pmpermit_on(event):
                 "__تم تعطيل قائمة العميل لحسابك بنجاح.__",
             )
         else:
-            await edit_delete(
-                event, "__قائمة العميل معطلة بالفعل لحسابك__"
-            )
+            await edit_delete(event, "__قائمة العميل معطلة بالفعل لحسابك__")
     elif gvarstatus("pmmenu") is not None:
         delgvar("pmmenu")
-        await edit_delete(
-            event, "__تم تفعيل قائمة العميل لحسابك بنجاح__"
-        )
+        await edit_delete(event, "__تم تفعيل قائمة العميل لحسابك بنجاح__")
     else:
-        await edit_delete(
-            event, "__تم تمكين قائمة العميل بالفعل لحسابك__"
-        )
+        await edit_delete(event, "__تم تمكين قائمة العميل بالفعل لحسابك__")
 
 
 @catub.cat_cmd(
@@ -781,9 +773,7 @@ async def disapprove_p_m(event):
                 return
     if reason == "الجميع":
         pmpermit_sql.disapprove_all()
-        return await edit_delete(
-            event, "__نعم!  لقد رفضت الجميع بنجاح.__"
-        )
+        return await edit_delete(event, "__نعم!  لقد رفضت الجميع بنجاح.__")
     if not reason:
         reason = "Not Mentioned."
     if pmpermit_sql.is_approved(user.id):

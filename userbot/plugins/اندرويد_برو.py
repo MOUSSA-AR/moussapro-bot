@@ -54,7 +54,9 @@ async def device_info(event):
         if textx:
             codename = textx.text
         else:
-            return await edit_delete(event, "`الاستخدام: .جهاز <اسم الكود> / <نوع الجهاز>`")
+            return await edit_delete(
+                event, "`الاستخدام: .جهاز <اسم الكود> / <نوع الجهاز>`"
+            )
     data = json.loads(
         get(
             "https://raw.githubusercontent.com/androidtrackers/"

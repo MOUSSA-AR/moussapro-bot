@@ -167,9 +167,7 @@ async def tban(event):  # sourcery no-metrics
         if reply:
             await reply.delete()
     except BadRequestError:
-        return await catevent.edit(
-            "`ليس لدي الحقوق اللازمة!  لكنه ما زال ممنوعا!`"
-        )
+        return await catevent.edit("`ليس لدي الحقوق اللازمة!  لكنه ما زال ممنوعا!`")
     # Delete message and then tell that the command
     # is done gracefully
     # Shout out the ID, so that fedadmins can fban later

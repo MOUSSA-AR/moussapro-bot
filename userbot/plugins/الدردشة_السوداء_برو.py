@@ -182,9 +182,7 @@ async def add_blacklist_chat(event):
                 if chatid in blkchats:
                     chatname = blacklistchats[str(chatid)]["chat_name"]
                     del blacklistchats[str(chatid)]
-                    result += (
-                        f"تم ازالة {chatname} من القائمة السوداء للدردشات.\n"
-                    )
+                    result += f"تم ازالة {chatname} من القائمة السوداء للدردشات.\n"
                 else:
                     errors += f"العضو {chatid} لا يوجد في قاعدة البيانات الخاصة بك.  هذا العضو لم يتم إدراجه في القائمة السوداء.\n"
             except Exception as e:

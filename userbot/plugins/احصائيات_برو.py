@@ -264,7 +264,9 @@ async def _(event):
         try:
             await conv.send_message(f"{uid}")
         except Exception:
-            await edit_delete(catevent, "`يرجى رفع الحظر عن `@tgscanrobot` واعادة المحاولة`")
+            await edit_delete(
+                catevent, "`يرجى رفع الحظر عن `@tgscanrobot` واعادة المحاولة`"
+            )
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         await catevent.edit(response.text)

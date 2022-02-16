@@ -129,7 +129,8 @@ async def spammer(event):
         counter = int(cat[0])
     except Exception:
         return await edit_delete(
-            event, "__استخدم بناء الجملة المناسب للبريد العشوائي.  صيغة Foe تشير إلى قائمة التعليمات.__"
+            event,
+            "__استخدم بناء الجملة المناسب للبريد العشوائي.  صيغة Foe تشير إلى قائمة التعليمات.__",
         )
     if counter > 50:
         sleeptimet = 0.5
@@ -306,7 +307,8 @@ async def spammer(event):
         sleeptimet = sleeptimem = float(input_str[0])
     except Exception:
         return await edit_delete(
-            event, "__استخدم بناء الجملة المناسب للبريد العشوائي.  صيغة Foe تشير إلى قائمة التعليمات.__"
+            event,
+            "__استخدم بناء الجملة المناسب للبريد العشوائي.  صيغة Foe تشير إلى قائمة التعليمات.__",
         )
     cat = input_str[1:]
     await event.delete()

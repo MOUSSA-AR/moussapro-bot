@@ -90,6 +90,4 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(last_name=blank))
     await edit_delete(event, "عاد بنجاح إلى حسابك مرة أخرى")
     if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID, f"#اعادة\عاد بنجاح إلى حسابك"
-        )
+        await event.client.send_message(BOTLOG_CHATID, f"#اعادة\عاد بنجاح إلى حسابك")

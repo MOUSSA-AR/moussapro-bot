@@ -251,9 +251,7 @@ async def _ban_person(event):
         if reply:
             await reply.delete()
     except BadRequestError:
-        return await catevent.edit(
-            "`لا تمتلك اذونات كافية لهذا.!`"
-        )
+        return await catevent.edit("`لا تمتلك اذونات كافية لهذا.!`")
     if reason:
         await catevent.edit(
             f"{_format.mentionuser(user.first_name ,user.id)}` تم تقييده !!`\n**السبب : **`{reason}`"
@@ -360,7 +358,9 @@ async def startmute(event):
         except Exception as e:
             await event.edit(f"**خطأ **\n`{str(e)}`")
         else:
-            await event.edit("`تم كتم العضو بنجاح\n**ï½-Â´)âââï¾.*ï½¥ï½¡ï¾ **`")
+            await event.edit(
+                "`تم كتم العضو بنجاح\n**ï½-Â´)âââï¾.*ï½¥ï½¡ï¾ **`"
+            )
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,
@@ -616,7 +616,9 @@ async def pin(event):
             await event.client.unpin_message(event.chat_id)
         else:
             return await edit_delete(
-                event, "`استخدم الأمر (.الغاء تثبيت الكل) لتتمكن من الغاء تثبيت جميع الرسائل.`", 5
+                event,
+                "`استخدم الأمر (.الغاء تثبيت الكل) لتتمكن من الغاء تثبيت جميع الرسائل.`",
+                5,
             )
     except BadRequestError:
         return await edit_delete(event, NO_PERM, 5)
@@ -655,7 +657,9 @@ async def pin(event):
 )
 async def _iundlt(event):  # sourcery no-metrics
     "To check recent deleted messages in group"
-    catevent = await edit_or_reply(event, "`جاري البحث في الرسائل الأخيرة. انتظر قليلا....`")
+    catevent = await edit_or_reply(
+        event, "`جاري البحث في الرسائل الأخيرة. انتظر قليلا....`"
+    )
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))

@@ -205,9 +205,7 @@ async def _(event):  # sourcery no-metrics
             "قم بالرد على ملف الوسائط لتنزيله على خادم البوت برو",
             parse_mode=_format.parse_pre,
         )
-    mone = await edit_or_reply(
-        event, "تحميل الملف ...", parse_mode=_format.parse_pre
-    )
+    mone = await edit_or_reply(event, "تحميل الملف ...", parse_mode=_format.parse_pre)
     start = datetime.now()
     for attr in getattr(reply.document, "attributes", []):
         if isinstance(attr, types.DocumentAttributeFilename):

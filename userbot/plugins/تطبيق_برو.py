@@ -77,9 +77,7 @@ async def app_search(event):
             "five", "5"
         )
         app_details += (
-            "\n<code>💎| ميزات التطبيق :</code> <a href='"
-            + app_link
-            + "'>اضغط هنا</a>"
+            "\n<code>💎| ميزات التطبيق :</code> <a href='" + app_link + "'>اضغط هنا</a>"
         )
         app_details += f"\n\n↠ {ALIVE_NAME} ↞"
         await event.edit(app_details, link_preview=True, parse_mode="HTML")
