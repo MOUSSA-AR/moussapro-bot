@@ -12,7 +12,7 @@ A simple Telegram userbot based on Telethon .
 
 ## How to deploy MOUSSA PRObot
 ### Heroku Deploy
-  - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://github.com/MOUSSA-AR/pro-pack)
+  - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MOUSSA-AR/moussabot)
 
 
 ## Support
