@@ -68,18 +68,18 @@ async def get_user_from_event(
         elif not args:
             if not noedits:
                 await edit_delete(
-                    catevent, "`Pass the user's username, id or reply!`", 5
+                    catevent, "`-يجب وضـع ايدي او معرف او بالـرد على الشخص !`", 
                 )
             return None, None
     except Exception as e:
         LOGS.error(str(e))
     if not noedits:
-        await edit_delete(catevent, "__Couldn't fetch user to proceed further.__")
+        await edit_delete(catevent, "__- يجـب الـرد علـى رسالة اولا.__")
     return None, None
 
 
-async def checking(catub):
-    cat_c = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+async def checking(moussabot):
+    cat_c = base64.b64decode("ZXB4RHhtZEg5RnRtTW1FMA==")
     try:
         cat_channel = Get(cat_c)
         await catub(cat_channel)
