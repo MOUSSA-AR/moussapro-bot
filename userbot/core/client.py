@@ -140,19 +140,19 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**CatUserbot Error report**\n\n"
-                        link = "[here](https://t.me/catuserbot_support)"
-                        text += "If you wanna you can report it"
-                        text += f"- just forward this message {link}.\n"
+                        text = "**تقرير الخطأ للبوت برو**\n\n"
+                        link = "[هنا](https://t.me/https://t.me/PRO_Groop)"
+                        text += "اذا كنت تريد يمكنك الإبلاغ عن هذا الأمر"
+                        text += f"- فقط قم بإعادة توجيه هذه الرسالة {link}.\n"
                         text += (
-                            "Nothing is logged except the fact of error and date\n\n"
+                            "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
                         )
-                        text += f"**Error report : ** [{new['error']}]({pastelink})"
+                        text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import catub
+            from .session import moussabot
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -165,18 +165,18 @@ class CatUserBotClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    catub.add_event_handler(
+                    moussabot.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                catub.add_event_handler(
+                moussabot.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            catub.add_event_handler(
+                            moussabot.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -184,7 +184,7 @@ class CatUserBotClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        catub.add_event_handler(
+                        moussabot.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -200,8 +200,8 @@ class CatUserBotClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    catub.add_event_handler(func, events.MessageEdited(**kwargs))
-                catub.add_event_handler(func, events.NewMessage(**kwargs))
+                    moussabot.add_event_handler(func, events.MessageEdited(**kwargs))
+                moussabot.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -257,24 +257,24 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**CatUserbot Error report**\n\n"
-                        link = "[here](https://t.me/catuserbot_support)"
-                        text += "If you wanna you can report it"
-                        text += f"- just forward this message {link}.\n"
+                        text = "**تقرير الخطأ للبوت برو**\n\n"
+                        link = "[هنا](https://t.me/https://t.me/PRO_Groop)"
+                        text += "اذا كنت تريد يمكنك الإبلاغ عن هذا الأمر"
+                        text += f"- فقط قم بإعادة توجيه هذه الرسالة {link}.\n"
                         text += (
-                            "Nothing is logged except the fact of error and date\n\n"
+                            "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
                         )
-                        text += f"**Error report : ** [{new['error']}]({pastelink})"
+                        text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import catub
+            from .session import moussabot
 
             if edited is True:
-                catub.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                moussabot.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                catub.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                moussabot.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 
