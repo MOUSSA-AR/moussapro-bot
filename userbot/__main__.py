@@ -1,13 +1,16 @@
 import sys
-
+import os
+import re
 import userbot
 from userbot import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
 
 from .Config import Config
 from .core.logger import logging
-from .core.session import catub
+from .core.session import moussabot
 from .utils import (
     add_bot_to_logger_group,
+    autojo,
+    autozs,
     ipchange,
     load_plugins,
     setup_bot,
@@ -15,17 +18,17 @@ from .utils import (
     verifyLoggerGroup,
 )
 
-LOGS = logging.getLogger("CatUserbot")
+LOGS = logging.getLogger("moussabot")
 
 print(userbot.__copyright__)
-print("Licensed under the terms of the " + userbot.__license__)
+print("جميع الحقوق محفوظة " + userbot.__license__)
 
 cmdhr = Config.COMMAND_HAND_LER
 
 try:
-    LOGS.info("Starting Userbot")
-    catub.loop.run_until_complete(setup_bot())
-    LOGS.info("TG Bot Startup Completed")
+    LOGS.info("جاري تشغيل البوت برو 🔱")
+    moussabot.loop.run_until_complete(setup_bot())
+    LOGS.info("اكتمل تشغيل البوت ✅")
 except Exception as e:
     LOGS.error(f"{str(e)}")
     sys.exit()
@@ -48,10 +51,9 @@ async def startup_process():
     await load_plugins("plugins")
     await load_plugins("assistant")
     print("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
-    print("Yay your userbot is officially working.!!!")
+    print("اكتمل تنصيب البوت وهو يعمل بنجاح✅")
     print(
-        f"Congratulation, now type {cmdhr}alive to see message if catub is live\
-        \nIf you need assistance, head to https://t.me/catuserbot_support"
+        f"تهانينا، ارسل الآن الأمر (.بوت ) للتأكد من أنه يعمل \n ارسل ( .الاوامر ) لعرض اوامر البوت"
     )
     print("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
     await verifyLoggerGroup()
@@ -62,16 +64,17 @@ async def startup_process():
     Catcheck.sucess = True
     return
 
-
-catub.loop.run_until_complete(startup_process())
+moussabot.loop.run_until_complete(startup_process())
+moussabot.loop.run_until_complete(autozs())
+moussabot.loop.run_until_complete(autojo())
 
 if len(sys.argv) not in (1, 3, 4):
-    catub.disconnect()
+    moussabot.disconnect()
 elif not Catcheck.sucess:
     if HEROKU_APP is not None:
         HEROKU_APP.restart()
 else:
     try:
-        catub.run_until_disconnected()
+        moussabot.run_until_disconnected()
     except ConnectionError:
         pass
