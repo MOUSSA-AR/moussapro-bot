@@ -1,29 +1,37 @@
+# @moussa_pro - < https://t.me/moussa_pro >
+# Copyright (C) 2021 - MOUSSA-AR
+# All rights reserved.
+#
+# This file is a part of < https://github.com/MOUSSA-AR/moussabot >
+# Please read the GNU Affero General Public License in;
+# < https://github.com/MOUSSA-AR/moussapro_bot/blob/master/LICENSE
+# ===============================================================
 import time
 
 import heroku3
 
 from .Config import Config
 from .core.logger import logging
-from .core.session import catub
+from .core.session import moussabot
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
 
-__version__ = "3.0.2"
-__license__ = "GNU Affero General Public License v3.0"
-__author__ = "CatUserBot <https://github.com/sandy1709/catuserbot>"
-__copyright__ = "CatUserBot Copyright (C) 2020 - 2021  " + __author__
+__version__ = "2.0.0"
+__license__ = "كتابة وتعديل موسى @u_5_1"
+__author__ = "MOUSSA_pro <https://github.com/MOUSSA-AR/moussapro-bot>"
+__copyright__ = "MOUSSA-PRO Team  (C) 2021 - 2022  " + __author__
 
 catub.version = __version__
 catub.tgbot.version = __version__
-LOGS = logging.getLogger("CatUserbot")
-bot = catub
+LOGS = logging.getLogger("ProUserbot")
+bot = moussabot
 
 StartTime = time.time()
-catversion = "3.0.3"
+proversion = "5.2.0"
 
-if Config.UPSTREAM_REPO == "badcat":
-    UPSTREAM_REPO_URL = "https://github.com/Jisan09/catuserbot"
-elif Config.UPSTREAM_REPO == "goodcat":
-    UPSTREAM_REPO_URL = "https://github.com/sandy1709/catuserbot"
+if Config.UPSTREAM_REPO == "prouserbot":
+    UPSTREAM_REPO_URL = "https://github.com/MOUSSA-AR/moussapro-bot"
+elif Config.UPSTREAM_REPO == "moussabot":
+    UPSTREAM_REPO_URL = "https://github.com/MOUSSA-AR/moussapro-bot"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
