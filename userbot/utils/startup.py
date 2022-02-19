@@ -253,6 +253,15 @@ async def verifyLoggerGroup():
             "مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID تم إنشاؤه بنجاح وإضافته إلى القيمة."
         )
         flag = True
+    else:
+        descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @moussa_pro"
+        photobt = await moussabot.upload_file(file="moussapro/pro/resources/start/moussaprop.jpg")
+        _, groupid = await create_supergroup(
+            "مجموعة اشعارات البوت برو الخاص بك ", moussabot, Config.TG_BOT_USERNAME, descript, photobt
+        )
+        addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
+        print("تم إنشاء مجموعة الاشعارات بنجاح وإضافتها إلى المتغيرات.")
+        flag = True
     if PM_LOGGER_GROUP_ID != -100:
         try:
             entity = await moussabot.get_entity(PM_LOGGER_GROUP_ID)
@@ -276,7 +285,7 @@ async def verifyLoggerGroup():
             )
     else:
         descript = " وظيفة المجموعة تحفظ لك الرسائل الخاصة اذا لم تكن تريد هذا الامر يمكنك حذف المجموعة بشكل نهائي \n  - @moussa_pro"
-        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
+        photobt = await moussabot.upload_file(file="moussapro/pro/resources/start/moussaprop.jpg")
         _, groupid = await create_supergroup(
             "مجموعة التخزين", moussabot, Config.TG_BOT_USERNAME, descript, photobt
         )
