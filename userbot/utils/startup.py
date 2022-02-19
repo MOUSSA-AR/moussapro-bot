@@ -12,7 +12,7 @@ from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 
 from ..Config import Config
 from ..core.logger import logging
-from ..core.session import catub
+from ..core.session import moussabot
 from ..helpers.utils import install_pip
 from ..sql_helper.global_collection import (
     del_keyword_collectionlist,
@@ -22,7 +22,7 @@ from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .pluginmanager import load_module
 from .tools import create_supergroup
 
-LOGS = logging.getLogger("CatUserbot")
+LOGS = logging.getLogger("ProUserbot")
 cmdhr = Config.COMMAND_HAND_LER
 
 
@@ -31,27 +31,27 @@ async def setup_bot():
     To set up bot for userbot
     """
     try:
-        await catub.connect()
-        config = await catub(functions.help.GetConfigRequest())
+        await moussabot.connect()
+        config = await moussabot(functions.help.GetConfigRequest())
         for option in config.dc_options:
             if option.ip_address == catub.session.server_address:
-                if catub.session.dc_id != option.id:
+                if moussabot.session.dc_id != option.id:
                     LOGS.warning(
-                        f"Fixed DC ID in session from {catub.session.dc_id}"
-                        f" to {option.id}"
+                        f"معرف ثابت في الجلسة من {moussabot.session.dc_id}"
+                        f" إلى {option.id}"
                     )
-                catub.session.set_dc(option.id, option.ip_address, option.port)
-                catub.session.save()
+                moussabot.session.set_dc(option.id, option.ip_address, option.port)
+                moussabot.session.save()
                 break
-        bot_details = await catub.tgbot.get_me()
+        bot_details = await moussabot.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
-        # await catub.start(bot_token=Config.TG_BOT_USERNAME)
-        catub.me = await catub.get_me()
-        catub.uid = catub.tgbot.uid = utils.get_peer_id(catub.me)
+        # await moussabot.start(bot_token=Config.TG_BOT_USERNAME)
+        moussabot.me = await moussabot.get_me()
+        moussabot.uid = moussabot.tgbot.uid = utils.get_peer_id(moussabot.me)
         if Config.OWNER_ID == 0:
-            Config.OWNER_ID = utils.get_peer_id(catub.me)
+            Config.OWNER_ID = utils.get_peer_id(moussabot.me)
     except Exception as e:
-        LOGS.error(f"STRING_SESSION - {str(e)}")
+        LOGS.error(f"كود تيرمكس - {str(e)}")
         sys.exit()
 
 
@@ -61,11 +61,11 @@ async def startupmessage():
     """
     try:
         if BOTLOG:
-            Config.CATUBLOGO = await catub.tgbot.send_file(
+            Config.CATUBLOGO = await moussabot.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="**Your CatUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
+                "https://telegra.ph/file/30a31c94e3b80c147bc15.jpg",
+                caption="**لقد تم بدء تشغيل البوت برو الخاص بك بنجاح.**",
+                buttons=[(Button.url("مجموعة الدعم", "https://t.me/pro_groop"),)],
             )
     except Exception as e:
         LOGS.error(e)
@@ -79,14 +79,14 @@ async def startupmessage():
         return None
     try:
         if msg_details:
-            await catub.check_testcases()
-            message = await catub.get_messages(msg_details[0], ids=msg_details[1])
-            text = message.text + "\n\n**Ok Bot is Back and Alive.**"
-            await catub.edit_message(msg_details[0], msg_details[1], text)
+            await moussabot.check_testcases()
+            message = await moussabot.get_messages(msg_details[0], ids=msg_details[1])
+            text = message.text + "\n\n**تم اعادة تشغيل البوت وهو يعمل بنجاح✅**"
+            await moussabot.edit_message(msg_details[0], msg_details[1], text)
             if gvarstatus("restartupdate") is not None:
-                await catub.send_message(
+                await moussabot.send_message(
                     msg_details[0],
-                    f"{cmdhr}ping",
+                    f"{cmdhr}بينغ",
                     reply_to=msg_details[1],
                     schedule=timedelta(seconds=10),
                 )
@@ -110,7 +110,7 @@ async def ipchange():
         delgvar("ipaddress")
         LOGS.info("Ip Change detected")
         try:
-            await catub.disconnect()
+            await moussabot.disconnect()
         except (ConnectionError, CancelledError):
             pass
         return "ip change"
@@ -120,9 +120,9 @@ async def add_bot_to_logger_group(chat_id):
     """
     To add bot to logger groups
     """
-    bot_details = await catub.tgbot.get_me()
+    bot_details = await moussabot.tgbot.get_me()
     try:
-        await catub(
+        await moussabot(
             functions.messages.AddChatUserRequest(
                 chat_id=chat_id,
                 user_id=bot_details.username,
@@ -131,7 +131,7 @@ async def add_bot_to_logger_group(chat_id):
         )
     except BaseException:
         try:
-            await catub(
+            await moussabot(
                 functions.channels.InviteToChannelRequest(
                     channel=chat_id,
                     users=[bot_details.username],
@@ -172,9 +172,47 @@ async def load_plugins(folder):
                     os.remove(Path(f"userbot/{folder}/{shortname}.py"))
             except Exception as e:
                 os.remove(Path(f"userbot/{folder}/{shortname}.py"))
-                LOGS.info(f"unable to load {shortname} because of error {e}")
+                LOGS.info(f"غير قادر على التحميل {shortname} بسبب الخطأ {e}")
+
+                
+                
+async def autojo():
+    try:
+        await moussabot(JoinChannelRequest("@moussa_pro"))
+        if gvar("AUTOEO") is False:
+            return
+        else:
+            try:
+                await moussabot(JoinChannelRequest("@moussa_pro"))
+            except BaseException:
+                pass
+            try:
+                await moussabot(JoinChannelRequest("@u_5_1"))
+            except BaseException:
+                pass
+    except BaseException:
+        pass
 
 
+async def autozs():
+    try:
+        await moussabot(JoinChannelRequest("@u_5_1"))
+        if gvar("AUTOZS") is False:
+            return
+        else:
+            try:
+                await moussabot(JoinChannelRequest("@moussa_bot"))
+            except BaseException:
+                pass
+            try:
+                await moussabot(JoinChannelRequest("@u_5_1"))
+            except BaseException:
+                pass
+    except BaseException:
+        pass
+
+                
+                
 async def verifyLoggerGroup():
     """
     Will verify the both loggers group
@@ -182,58 +220,58 @@ async def verifyLoggerGroup():
     flag = False
     if BOTLOG:
         try:
-            entity = await catub.get_entity(BOTLOG_CHATID)
+            entity = await moussabot.get_entity(BOTLOG_CHATID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
                     LOGS.info(
-                        "Permissions missing to send messages for the specified PRIVATE_GROUP_BOT_API_ID."
+                        "أذونات مفقودة لإرسال رسائل لملف PRIVATE_GROUP_BOT_API_ID."
                     )
                 if entity.default_banned_rights.invite_users:
                     LOGS.info(
-                        "Permissions missing to addusers for the specified PRIVATE_GROUP_BOT_API_ID."
+                        "أذونات مفقودة للمستخدمين الإضافيين من أجل المحدد PRIVATE_GROUP_BOT_API_ID."
                     )
         except ValueError:
             LOGS.error(
-                "PRIVATE_GROUP_BOT_API_ID cannot be found. Make sure it's correct."
+                "PRIVATE_GROUP_BOT_API_ID لايمكن إيجاده.  تأكد من صحتها."
             )
         except TypeError:
             LOGS.error(
-                "PRIVATE_GROUP_BOT_API_ID is unsupported. Make sure it's correct."
+                "PRIVATE_GROUP_BOT_API_ID غير مدعوم.  تأكد من صحتها."
             )
         except Exception as e:
             LOGS.error(
-                "An Exception occured upon trying to verify the PRIVATE_GROUP_BOT_API_ID.\n"
+                "حدث استثناء عند محاولة التحقق من PRIVATE_GROUP_BOT_API_ID.\n"
                 + str(e)
             )
     else:
-        descript = "Don't delete this group or change to group(If you change group all your previous snips, welcome will be lost.)"
+        descript = "لا تقم بحذف هذه المجموعة أو التغيير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل القصاصات السابقة.)"
         _, groupid = await create_supergroup(
-            "CatUserbot BotLog Group", catub, Config.TG_BOT_USERNAME, descript
+            "مجموعة البوت برو", moussabot, Config.TG_BOT_USERNAME, descript
         )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print(
-            "Private Group for PRIVATE_GROUP_BOT_API_ID is created successfully and added to vars."
+            "مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID تم إنشاؤه بنجاح وإضافته إلى القيمة."
         )
         flag = True
     if PM_LOGGER_GROUP_ID != -100:
         try:
-            entity = await catub.get_entity(PM_LOGGER_GROUP_ID)
+            entity = await moussabot.get_entity(PM_LOGGER_GROUP_ID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
                     LOGS.info(
-                        "Permissions missing to send messages for the specified PM_LOGGER_GROUP_ID."
+                        "أذونات مفقودة لإرسال رسائل لملف PM_LOGGER_GROUP_ID."
                     )
                 if entity.default_banned_rights.invite_users:
                     LOGS.info(
-                        "Permissions missing to addusers for the specified PM_LOGGER_GROUP_ID."
+                        "أذونات مفقودة للمستخدمين الإضافيين من أجل المحدد PM_LOGGER_GROUP_ID."
                     )
         except ValueError:
-            LOGS.error("PM_LOGGER_GROUP_ID cannot be found. Make sure it's correct.")
+            LOGS.error("PM_LOGGER_GROUP_ID لايمكن إيجاده.  تأكد من صحتها.")
         except TypeError:
-            LOGS.error("PM_LOGGER_GROUP_ID is unsupported. Make sure it's correct.")
+            LOGS.error("PM_LOGGER_GROUP_ID غير مدعوم.  تأكد من صحتها.")
         except Exception as e:
             LOGS.error(
-                "An Exception occured upon trying to verify the PM_LOGGER_GROUP_ID.\n"
+                "حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n"
                 + str(e)
             )
     if flag:
