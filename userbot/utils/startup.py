@@ -274,6 +274,15 @@ async def verifyLoggerGroup():
                 "حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n"
                 + str(e)
             )
+    else:
+        descript = " وظيفة المجموعة تحفظ لك الرسائل الخاصة اذا لم تكن تريد هذا الامر يمكنك حذف المجموعة بشكل نهائي \n  - @moussa_pro"
+        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
+        _, groupid = await create_supergroup(
+            "مجموعة التخزين", moussabot, Config.TG_BOT_USERNAME, descript, photobt
+        )
+        addgvar("PM_LOGGER_GROUP_ID", groupid)
+        print("تم إنشاء مجموعة التخزين وإضافة القيم إليها.")
+        flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "userbot"]
