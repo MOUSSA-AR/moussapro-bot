@@ -1,12 +1,12 @@
 # MOUSSA PRObot
 A simple Telegram userbot based on Telethon .
-[![moussa pro bot logo](https://telegra.ph/file/30a31c94e3b80c147bc15.jpg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussa-bot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussa-bot)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussa-bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/MOUSSA-AR/moussa-bot)
+[![moussa pro bot logo](https://telegra.ph/file/30a31c94e3b80c147bc15.jpg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussapro-bot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussapro-bot)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMOUSSA-AR%2Fmoussapro-bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/MOUSSA-AR/moussapro-bot)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?&style=flat-square)](https://GitHub.com/MOUSSA-AR/moussa-bot/graphs/commit-activity) 
-![Repo Size](https://img.shields.io/github/repo-size/MOUSSA-AR/moussa-bot?&style=flat-square&logo=github)
-[![GitHub forks](https://img.shields.io/github/forks/MOUSSA-AR/moussa-bot?&style=flat-square&logo=github)](https://github.com/MOUSSA-AR/moussa-bot/fork)
-[![GitHub stars](https://img.shields.io/github/stars/MOUSSA-AR/moussa-bot?&style=flat-square&logo=github)](https://github.com/MOUSSA-AR/moussa-bot/stargazers)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?&style=flat-square)](https://GitHub.com/MOUSSA-AR/moussapro-bot/graphs/commit-activity) 
+![Repo Size](https://img.shields.io/github/repo-size/MOUSSA-AR/moussapro_bot?&style=flat-square&logo=github)
+[![GitHub forks](https://img.shields.io/github/forks/MOUSSA-AR/moussapro-bot?&style=flat-square&logo=github)](https://github.com/MOUSSA-AR/moussapro-bot/fork)
+[![GitHub stars](https://img.shields.io/github/stars/MOUSSA-AR/moussapro-bot?&style=flat-square&logo=github)](https://github.com/MOUSSA-AR/moussapro-bot/stargazers)
 
 
 
@@ -17,7 +17,7 @@ A simple Telegram userbot based on Telethon .
 
 ## Support
    <a href="https://t.me/moussa_pro"><img src="https://img.shields.io/badge/Channel%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
-   <a href="https://t.me/moussa_pro_groop"><img src="https://img.shields.io/badge/Group%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
+   <a href="https://t.me/pro_groop"><img src="https://img.shields.io/badge/Group%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
 
 ## Disclaimer
 
@@ -41,5 +41,5 @@ Thanks for using our bot 〽️
 
 ## Credits
    - Special thanks to [LonamiWebs](https://github.com/LonamiWebs/Telethon/) for Telethon library.
-   - To all devs of these [Userbots](https://github.com/MOUSSA-AR/moussa-bot/tree/bugs#inspiration)
-   - Finally to all [contributors of MOUSSA-PRO](https://github.com/MOUSSA-AR/moussa-bot/graphs/contributors)
+   - To all devs of these [Userbots](https://github.com/MOUSSA-AR/moussapro-bot/tree/bugs#inspiration)
+   - Finally to all [contributors of MOUSSA-PRO](https://github.com/MOUSSA-AR/moussapro-bot/graphs/contributors)
