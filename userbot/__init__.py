@@ -20,8 +20,8 @@ __license__ = "كتابة وتعديل موسى @u_5_1"
 __author__ = "MOUSSA_pro <https://github.com/MOUSSA-AR/moussapro-bot>"
 __copyright__ = "MOUSSA-PRO Team  (C) 2021 - 2022  " + __author__
 
-catub.version = __version__
-catub.tgbot.version = __version__
+moussabot.version = __version__
+moussabot.tgbot.version = __version__
 LOGS = logging.getLogger("ProUserbot")
 bot = moussabot
 
