@@ -16,7 +16,7 @@ else:
     session = "moussabot"
 
 try:
-    catub = CatUserBotClient(
+    moussabot = CatUserBotClient(
         session=session,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -31,8 +31,8 @@ except Exception as e:
     sys.exit()
 
 
-catub.tgbot = tgbot = CatUserBotClient(
-    session="proTgbot",
+moussabot.tgbot = tgbot = CatUserBotClient(
+    session="arTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
