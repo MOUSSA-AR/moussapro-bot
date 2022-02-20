@@ -104,10 +104,10 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    jasme = await event.edit(
+    moussa = await event.edit(
         "**-  تم تحديث سورس جمثون بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
     )
-    await event.client.reload(jasme)
+    await event.client.reload(moussa)
 
 
 async def deploy(event, repo, ups_rem, ac_br, txt):
@@ -132,7 +132,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             f"{txt}\n" "`Invalid Heroku credentials for deploying userbot dyno.`"
         )
         return repo.__del__()
-    jasme = await event.edit(
+    moussa = await event.edit(
         "`Userbot dyno build in progress, please wait until the process finishes it usually takes 4 to 5 minutes .`"
     )
     try:
@@ -143,7 +143,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     except Exception as e:
         LOGS.error(e)
     try:
-        add_to_collectionlist("restart_update", [jasme.chat_id, jasme.id])
+        add_to_collectionlist("restart_update", [moussa.chat_id, moussa.id])
     except Exception as e:
         LOGS.error(e)
     ups_rem.fetch(ac_br)
