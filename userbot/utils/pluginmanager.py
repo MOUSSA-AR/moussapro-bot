@@ -71,23 +71,23 @@ def remove_plugin(shortname):
         for cmdname in cmd:
             if cmdname in LOADED_CMDS:
                 for i in LOADED_CMDS[cmdname]:
-                    catub.remove_event_handler(i)
+                    moussabot.remove_event_handler(i)
                 del LOADED_CMDS[cmdname]
         return True
     except Exception as e:
         LOGS.error(e)
     try:
         for i in LOAD_PLUG[shortname]:
-            catub.remove_event_handler(i)
+            moussabot.remove_event_handler(i)
         del LOAD_PLUG[shortname]
     except BaseException:
         pass
     try:
         name = f"userbot.plugins.{shortname}"
-        for i in reversed(range(len(catub._event_builders))):
-            ev, cb = catub._event_builders[i]
+        for i in reversed(range(len(moussabot._event_builders))):
+            ev, cb = moussabot._event_builders[i]
             if cb.__module__ == name:
-                del catub._event_builders[i]
+                del moussabot._event_builders[i]
     except BaseException:
         raise ValueError
 
