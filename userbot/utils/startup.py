@@ -7,8 +7,10 @@ from pathlib import Path
 
 import requests
 from telethon import Button, functions, types, utils
+from telethon.tl.functions.channels import JoinChannelRequest
 
 from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
+from userbot import moussabot
 
 from ..Config import Config
 from ..core.logger import logging
@@ -22,7 +24,7 @@ from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .pluginmanager import load_module
 from .tools import create_supergroup
 
-LOGS = logging.getLogger("ProUserbot")
+LOGS = logging.getLogger("moussabot")
 cmdhr = Config.COMMAND_HAND_LER
 
 
@@ -193,7 +195,6 @@ async def autojo():
     except BaseException:
         pass
 
-
 async def autozs():
     try:
         await moussabot(JoinChannelRequest("@u_5_1"))
@@ -211,8 +212,6 @@ async def autozs():
     except BaseException:
         pass
 
-                
-                
 async def verifyLoggerGroup():
     """
     Will verify the both loggers group
