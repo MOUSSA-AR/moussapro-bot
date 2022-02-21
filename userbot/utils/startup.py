@@ -34,7 +34,7 @@ async def setup_bot():
         await moussabot.connect()
         config = await moussabot(functions.help.GetConfigRequest())
         for option in config.dc_options:
-            if option.ip_address == catub.session.server_address:
+            if option.ip_address == moussabot.session.server_address:
                 if moussabot.session.dc_id != option.id:
                     LOGS.warning(
                         f"معرف ثابت في الجلسة من {moussabot.session.dc_id}"
