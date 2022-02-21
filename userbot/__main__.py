@@ -18,7 +18,7 @@ from .utils import (
     verifyLoggerGroup,
 )
 
-LOGS = logging.getLogger("moussabot")
+LOGS = logging.getLogger("")
 
 print(userbot.__copyright__)
 print("جميع الحقوق محفوظة " + userbot.__license__)
