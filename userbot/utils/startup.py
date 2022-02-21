@@ -180,12 +180,12 @@ async def load_plugins(folder):
                 
 async def autojo():
     try:
-        await moussabot(JoinChannelRequest("@moussa_pro"))
+        await moussabot(JoinChannelRequest("@moussabot"))
         if gvar("AUTOEO") is False:
             return
         else:
             try:
-                await moussabot(JoinChannelRequest("@moussa_pro"))
+                await moussabot(JoinChannelRequest("@moussabot"))
             except BaseException:
                 pass
             try:
@@ -202,7 +202,7 @@ async def autozs():
             return
         else:
             try:
-                await moussabot(JoinChannelRequest("@moussa_bot"))
+                await moussabot(JoinChannelRequest("@moussabot"))
             except BaseException:
                 pass
             try:
@@ -244,8 +244,9 @@ async def verifyLoggerGroup():
             )
     else:
         descript = "لا تقم بحذف هذه المجموعة أو التغيير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل القصاصات السابقة.)"
+        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
         _, groupid = await create_supergroup(
-            "مجموعة البوت برو", moussabot, Config.TG_BOT_USERNAME, descript
+            "مجموعة البوت برو", moussabot, Config.TG_BOT_USERNAME, descript, photobt
         )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print(
