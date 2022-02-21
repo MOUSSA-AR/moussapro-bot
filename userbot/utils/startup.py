@@ -216,7 +216,7 @@ async def verifyLoggerGroup():
     """
     Will verify the both loggers group
     """
-    flag = False
+    flag = True
     if BOTLOG:
         try:
             entity = await moussabot.get_entity(BOTLOG_CHATID)
@@ -252,7 +252,7 @@ async def verifyLoggerGroup():
         print(
             "مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID تم إنشاؤه بنجاح وإضافته إلى القيمة."
         )
-        flag = False
+        flag = True
     
     if PM_LOGGER_GROUP_ID != -100:
         try:
@@ -283,7 +283,7 @@ async def verifyLoggerGroup():
         )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("تم إنشاء مجموعة التخزين وإضافة القيم إليها.")
-        flag = False
+        flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "userbot"]
