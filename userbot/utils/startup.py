@@ -252,7 +252,7 @@ async def verifyLoggerGroup():
         print(
             "مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID تم إنشاؤه بنجاح وإضافته إلى القيمة."
         )
-        flag = True
+        flag = False
     
     if PM_LOGGER_GROUP_ID != -100:
         try:
@@ -283,7 +283,7 @@ async def verifyLoggerGroup():
         )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("تم إنشاء مجموعة التخزين وإضافة القيم إليها.")
-        flag = True
+        flag = False
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "userbot"]
