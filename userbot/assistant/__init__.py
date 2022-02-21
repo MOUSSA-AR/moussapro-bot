@@ -1,4 +1,4 @@
-from moussapro.pro.resources.assistant import *
+from moussabot.pro.resources.assistant import *
 
 from userbot import BOTLOG, BOTLOG_CHATID, moussabot
 
