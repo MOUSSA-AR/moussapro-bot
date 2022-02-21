@@ -277,7 +277,7 @@ async def verifyLoggerGroup():
             )
     else:
         descript = " وظيفة المجموعة تحفظ لك الرسائل الخاصة اذا لم تكن تريد هذا الامر يمكنك حذف المجموعة بشكل نهائي \n  - @moussa_pro"
-        photobt = await moussabot.upload_file(file="moussapro/pro/resources/start/moussaprop.jpg")
+        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
         _, groupid = await create_supergroup(
             "مجموعة التخزين", moussabot, Config.TG_BOT_USERNAME, descript, photobt
         )
