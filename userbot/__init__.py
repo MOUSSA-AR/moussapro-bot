@@ -15,7 +15,7 @@ from .core.logger import logging
 from .core.session import moussabot
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
 
-__version__ = "2.0.0"
+__version__ = "1.0.0"
 __license__ = "كتابة وتعديل موسى @u_5_1"
 __author__ = "MOUSSA_pro <https://github.com/MOUSSA-AR/moussapro-bot>"
 __copyright__ = "MOUSSA-PRO Team  (C) 2021 - 2022  " + __author__
@@ -28,9 +28,9 @@ bot = moussabot
 StartTime = time.time()
 proversion = "5.2.0"
 
-if Config.UPSTREAM_REPO == "prouserbot":
+if Config.UPSTREAM_REPO == "moussapro-bot":
     UPSTREAM_REPO_URL = "https://github.com/MOUSSA-AR/moussapro-bot"
-elif Config.UPSTREAM_REPO == "moussabot":
+elif Config.UPSTREAM_REPO == "moussa-ar":
     UPSTREAM_REPO_URL = "https://github.com/MOUSSA-AR/moussapro-bot"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
