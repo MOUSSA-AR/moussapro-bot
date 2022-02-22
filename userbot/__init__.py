@@ -26,7 +26,7 @@ LOGS = logging.getLogger("ProUserbot")
 bot = moussabot
 
 StartTime = time.time()
-proversion = "4.0.0"
+proversion = "5.2.0"
 
 if Config.UPSTREAM_REPO == "moussapro-bot":
     UPSTREAM_REPO_URL = "https://github.com/MOUSSA-AR/moussapro-bot"
