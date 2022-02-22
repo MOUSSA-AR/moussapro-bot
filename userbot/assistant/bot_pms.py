@@ -410,7 +410,9 @@ async def send_flood_alert(user_) -> None:
             )
         except UserIsBlockedError:
             if BOTLOG:
-                await moussabot.tgbot.send_message(BOTLOG_CHATID, "**قم بإلغاء حظر البوت الخاص بك !**")
+                await moussabot.tgbot.send_message(
+                    BOTLOG_CHATID, "**قم بإلغاء حظر البوت الخاص بك !**"
+                )
     if FloodConfig.ALERT[user_.id].get("fa_id") is None and fa_msg:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 

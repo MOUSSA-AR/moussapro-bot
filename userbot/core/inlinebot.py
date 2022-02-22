@@ -11,8 +11,6 @@ from telethon.errors import QueryIdInvalidError
 from telethon.events import CallbackQuery, InlineQuery
 from youtubesearchpython import VideosSearch
 
-from userbot import moussa_bot
-
 from ..Config import Config
 from ..helpers.functions import rand_key
 from ..helpers.functions.utube import (

@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 
 from userbot import moussabot
+
 #
 from . import hmention, reply_id
 
@@ -50,8 +51,4 @@ async def _(event):
 
 # ======================================================================================================================================
 
-CMD_HELP.update(
-    {
-        "البنك":".بنك\nجرب الامر بنفسك" 
-        }
-        )
+CMD_HELP.update({"البنك": ".بنك\nجرب الامر بنفسك"})

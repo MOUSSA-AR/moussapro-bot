@@ -1,5 +1,4 @@
 from moussabot.pro.resources.assistant import *
-
 from userbot import BOTLOG, BOTLOG_CHATID, moussabot
 
 from ..Config import Config

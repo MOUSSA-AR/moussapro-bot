@@ -6,7 +6,7 @@
 # Please read the GNU Affero General Public License in;
 # < https://github.com/JMTHON-AR/JM-THON/blob/master/LICENSE
 # ===============================================================
-#Telegram @PRO_USERBOT
+# Telegram @PRO_USERBOT
 import asyncio
 
 from telethon import events

@@ -9,8 +9,7 @@ import requests
 from telethon import Button, functions, types, utils
 from telethon.tl.functions.channels import JoinChannelRequest
 
-from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
-from userbot import moussabot
+from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID, moussabot
 
 from ..Config import Config
 from ..core.logger import logging
@@ -176,8 +175,7 @@ async def load_plugins(folder):
                 os.remove(Path(f"userbot/{folder}/{shortname}.py"))
                 LOGS.info(f"غير قادر على التحميل {shortname} بسبب الخطأ {e}")
 
-                
-                
+
 async def autojo():
     try:
         await moussabot(JoinChannelRequest("@moussabot"))
@@ -195,6 +193,7 @@ async def autojo():
     except BaseException:
         pass
 
+
 async def autozs():
     try:
         await moussabot(JoinChannelRequest("@u_5_1"))
@@ -211,6 +210,7 @@ async def autozs():
                 pass
     except BaseException:
         pass
+
 
 async def verifyLoggerGroup():
     """
@@ -230,21 +230,18 @@ async def verifyLoggerGroup():
                         "أذونات مفقودة للمستخدمين الإضافيين من أجل المحدد PRIVATE_GROUP_BOT_API_ID."
                     )
         except ValueError:
-            LOGS.error(
-                "PRIVATE_GROUP_BOT_API_ID لايمكن إيجاده.  تأكد من صحتها."
-            )
+            LOGS.error("PRIVATE_GROUP_BOT_API_ID لايمكن إيجاده.  تأكد من صحتها.")
         except TypeError:
-            LOGS.error(
-                "PRIVATE_GROUP_BOT_API_ID غير مدعوم.  تأكد من صحتها."
-            )
+            LOGS.error("PRIVATE_GROUP_BOT_API_ID غير مدعوم.  تأكد من صحتها.")
         except Exception as e:
             LOGS.error(
-                "حدث استثناء عند محاولة التحقق من PRIVATE_GROUP_BOT_API_ID.\n"
-                + str(e)
+                "حدث استثناء عند محاولة التحقق من PRIVATE_GROUP_BOT_API_ID.\n" + str(e)
             )
     else:
         descript = "لا تقم بحذف هذه المجموعة أو التغيير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل القصاصات السابقة.)"
-        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
+        photobt = await moussabot.upload_file(
+            file="moussabot/pro/resources/start/moussaprop.jpg"
+        )
         _, groupid = await create_supergroup(
             "مجموعة البوت برو", moussabot, Config.TG_BOT_USERNAME, descript, photobt
         )
@@ -253,15 +250,13 @@ async def verifyLoggerGroup():
             "مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID تم إنشاؤه بنجاح وإضافته إلى القيمة."
         )
         flag = True
-    
+
     if PM_LOGGER_GROUP_ID != -100:
         try:
             entity = await moussabot.get_entity(PM_LOGGER_GROUP_ID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
-                    LOGS.info(
-                        "أذونات مفقودة لإرسال رسائل لملف PM_LOGGER_GROUP_ID."
-                    )
+                    LOGS.info("أذونات مفقودة لإرسال رسائل لملف PM_LOGGER_GROUP_ID.")
                 if entity.default_banned_rights.invite_users:
                     LOGS.info(
                         "أذونات مفقودة للمستخدمين الإضافيين من أجل المحدد PM_LOGGER_GROUP_ID."
@@ -272,12 +267,13 @@ async def verifyLoggerGroup():
             LOGS.error("PM_LOGGER_GROUP_ID غير مدعوم.  تأكد من صحتها.")
         except Exception as e:
             LOGS.error(
-                "حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n"
-                + str(e)
+                "حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n" + str(e)
             )
     else:
         descript = " وظيفة المجموعة تحفظ لك الرسائل الخاصة اذا لم تكن تريد هذا الامر يمكنك حذف المجموعة بشكل نهائي \n  - @moussa_pro"
-        photobt = await moussabot.upload_file(file="moussabot/pro/resources/start/moussaprop.jpg")
+        photobt = await moussabot.upload_file(
+            file="moussabot/pro/resources/start/moussaprop.jpg"
+        )
         _, groupid = await create_supergroup(
             "مجموعة التخزين", moussabot, Config.TG_BOT_USERNAME, descript, photobt
         )

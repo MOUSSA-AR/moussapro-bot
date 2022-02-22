@@ -101,8 +101,7 @@ def checkplugins(filename):
     with open(filename, "w") as f:
         f.write(filedata)
 
-        
-        
+
 # استدعاء ملفات البوت المساعد
 def start_assistant(shortname):
     if shortname.startswith("__"):

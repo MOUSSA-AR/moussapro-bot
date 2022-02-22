@@ -1,6 +1,5 @@
 import sys
-import os
-import re
+
 import userbot
 from userbot import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
 
@@ -63,6 +62,7 @@ async def startup_process():
     await startupmessage()
     Catcheck.sucess = True
     return
+
 
 moussabot.loop.run_until_complete(startup_process())
 moussabot.loop.run_until_complete(autozs())

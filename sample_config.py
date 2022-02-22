@@ -39,12 +39,12 @@ class Config(object):
     AUTONAME = os.environ.get("AUTONAME", None)
 
     ###
-    
+
     BOTE_CMD = os.environ.get("BOTE_CMD", None)
     LPRIV_CMD = os.environ.get("LPRIV_CMD", None)
     LGROUP_CMD = os.environ.get("LGROUP_CMD", None)
     SCPIC_CMD = os.environ.get("SCPIC_CMD", None)
-    
+
     SLEEPM_CMD = os.environ.get("SLEEPM_CMD", None)
     ADD_CMD = os.environ.get("ADD_CMD", None)
     SLEEP_CMD = os.environ.get("SLEEP_CMD", None)
@@ -56,7 +56,7 @@ class Config(object):
     DELWELCOME_CMD = os.environ.get("DELWELCOME_CMD", None)
     WELCOMES_CMD = os.environ.get("WELCOMES_CMD", None)
     WELCOME_CMD = os.environ.get("WELCOME_CMD", None)
-    
+
     PING_PIC = os.environ.get("PING_PIC")
     TI_FN = os.environ.get("TI_FN", None)
     TIME_JM = os.environ.get("TIME_JM", None)

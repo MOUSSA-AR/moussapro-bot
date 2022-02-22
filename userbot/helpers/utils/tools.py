@@ -26,9 +26,7 @@ async def media_to_pic(event, reply, noedits=False):  # sourcery no-metrics
     ]:
         return event, None
     if not noedits:
-        catevent = await edit_or_reply(
-            event, f"`جاري التحويل الرجاء الإنتظار....`"
-        )
+        catevent = await edit_or_reply(event, f"`جاري التحويل الرجاء الإنتظار....`")
     else:
         catevent = event
     catmedia = None

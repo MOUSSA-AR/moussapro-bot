@@ -145,9 +145,7 @@ class CatUserBotClient(TelegramClient):
                         link = "[هنا](https://t.me/https://t.me/PRO_Groop)"
                         text += "اذا كنت تريد يمكنك الإبلاغ عن هذا الأمر"
                         text += f"- فقط قم بإعادة توجيه هذه الرسالة {link}.\n"
-                        text += (
-                            "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
-                        )
+                        text += "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
                         text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
@@ -262,9 +260,7 @@ class CatUserBotClient(TelegramClient):
                         link = "[هنا](https://t.me/https://t.me/PRO_Groop)"
                         text += "اذا كنت تريد يمكنك الإبلاغ عن هذا الأمر"
                         text += f"- فقط قم بإعادة توجيه هذه الرسالة {link}.\n"
-                        text += (
-                            "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
-                        )
+                        text += "لا يتم تسجيل أي شيء باستثناء التاريخ والوقت\n\n"
                         text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False

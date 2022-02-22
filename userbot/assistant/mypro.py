@@ -16,7 +16,6 @@ from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 
 from moussabot.pro.resources.assistant import *
-
 from userbot import bot
 from userbot.sql_helper.idadder_sql import add_usersid_in_db, already_added
 
@@ -78,8 +77,10 @@ async def help(event):
                 [Button.url("كروب المساعدة ❓", "https://t.me/pro_groop")],
             ],
         )
-        
+
+
 # Telegram  :  @moussapro  - @u_5_1   -  https://github.com/MOUSSA-AR/moussapro_bot/blob/master/LICENSE
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
@@ -110,11 +111,12 @@ async def starkislub(event):
     razan = "**𝐏𝐑𝐎 𝘜𝘚𝘌𝘙𝘉𝘖𝘛**\n•━═━═━═━═━━═━═━═━═━•‌‌\n**- حالة البوت **  يعمـل بنجـاح\n**- اصدار برو  **: 5.0.0\n**- اصدار البايثون **: 3.9.6\n**- يوزرك **\n**- CH : @moussa_pro**\n\n"
     await event.reply(pro)
 
-#تنويه مهم🔊🔊
-   
-  # حقوق هذا الملف لسورس جمثون الصديق
-  # قناته على تلغرام : https://t.me/jmthon
-  #
-    
-    
+
+# تنويه مهم🔊🔊
+
+# حقوق هذا الملف لسورس جمثون الصديق
+# قناته على تلغرام : https://t.me/jmthon
+#
+
+
 #
