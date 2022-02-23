@@ -1,9 +1,9 @@
 from userbot.Config import Config
 from userbot.plugins import mention
 
-RAZAN = Config.TG_BOT_USERNAME
+pro = Config.TG_BOT_USERNAME
 # for alive
-ROZ = (
+ppp = (
     f"**⌯︙بوت برو يعمل بنجاح 🤍،**\n"
     f"**   - اصدار التليثون :** `1.23.0\n`"
     f"**   - اصدار برو :** `4.0.0`\n"
