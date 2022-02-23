@@ -1,7 +1,6 @@
 # @moussa_bot
 import sys
-import os
-import re
+
 import userbot
 from userbot import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
 
@@ -41,6 +40,7 @@ class CatCheck:
 
 
 Catcheck = CatCheck()
+
 
 async def startup_process():
     check = await ipchange()
