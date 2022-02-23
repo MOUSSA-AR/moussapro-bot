@@ -1,35 +1,46 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, Integer, String
 
 from . import BASE, SESSION
 
 
-class userbase(BASE):
-    __tablename__ = "UserBase"
-    chat_id = Column(String(14), primary_key=True)
+class Users(BASE):
+    """Table to store the received messages"""
 
-    def __init__(self, chat_id):
-        self.chat_id = chat_id
+    __tablename__ = "users"
+    message_id = Column(Integer, primary_key=True)
+    chat_id = Column(String(14))
+    um_id = Column(Integer)
+
+    def __init__(self, message_id, chat_id, um_id):
+        self.message_id = message_id
+        self.chat_id = str(chat_id)
+        self.um_id = um_id
+
+    def __repr__(self):
+        return "<User %s>" % self.chat_id
 
 
-userbase.__table__.create(checkfirst=True)
+Users.__table__.create(checkfirst=True)
 
 
-def add_to_userbase(chat_id: int):
-    __user = userbase(str(chat_id))
+def add_user_to_db(message_id: int, chat_id: int, um_id: int):
+    """add the message to the table"""
+    __user = Users(message_id, str(chat_id), um_id)
     SESSION.add(__user)
     SESSION.commit()
 
 
-def full_userbase():
-    users = SESSION.query(userbase).all()
-    SESSION.close()
-    return users
-
-
-def present_in_userbase(chat_id):
+def get_user_id(message_id: int):
+    """get the user_id from the message_id"""
     try:
-        return SESSION.query(userbase).filter(userbase.chat_id == str(chat_id)).one()
-    except BaseException:
-        return None
+        s__ = SESSION.query(Users).get(str(message_id))
+        return int(s__.chat_id), s__.um_id
     finally:
         SESSION.close()
+
+
+def all_users():
+    """get all bot users"""
+    tele = SESSION.query(Users).all()
+    SESSION.close()
+    return tele
